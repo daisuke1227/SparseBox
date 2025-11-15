@@ -66,6 +66,15 @@ struct ContentView: View {
                     Text("Hide free developer apps from installd, so you could install more than 3 apps. You need to apply this for each 3 apps you install or update.")
                 }
                 Section {
+                    Button("BL Sandbox Escape (iOS ≤26.1)") {
+                        path.append("BLSandboxEscape")
+                    }
+                } header: {
+                    Text("Alternative Exploit Methods")
+                } footer: {
+                    Text("Uses itunesstored & bookassetd sandbox escape. Works on iOS 26.1 and below only. This method is different from the backup restoration exploit and can be used for research purposes.")
+                }
+                Section {
                     Toggle("Action Button", isOn: bindingForMGKeys(["cT44WE1EohiwRzhsZ8xEsw"]))
                         .disabled(requiresVersion(17))
                     Toggle("Allow installing iPadOS apps", isOn: bindingForMGKeys(["9MZ5AdH43csAUajl/dU+IQ"], type: [Int].self, defaultValue: [1], enableValue: [1, 2]))
@@ -168,6 +177,8 @@ Thanks to:
                     LogView(mbdb: mbdb!, reboot: false)
                 } else if view == "ListApps" {
                     AppListView()
+                } else if view == "BLSandboxEscape" {
+                    BLSandboxEscapeView()
                 }
             }
             .navigationTitle("SparseBox")

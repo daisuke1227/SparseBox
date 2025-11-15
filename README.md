@@ -3,9 +3,23 @@
 On-device backup restoration?
 
 - [x] rewrote SparseRestore to swift
+- [x] integrated bl_sbx (itunesstored & bookassetd sandbox escape for iOS ≤26.1)
 
 > [!NOTE]
 > I have no interest in updating this project at the moment, see Releases for more info. PR welcome.
+
+## Features
+
+### Backup Restoration Exploit
+The primary method uses on-device backup restoration with path traversal to modify MobileGestalt and enable various iOS features.
+
+### BL Sandbox Escape (iOS ≤26.1)
+Alternative exploit method using itunesstored & bookassetd daemons to escape the sandbox and write arbitrary files. This exploit:
+- Works on iOS 26.1 and below (patched in iOS 26.2+)
+- Uses crafted SQLite databases (BLDatabaseManager.sqlite, downloads.28.sqlitedb)
+- Delivers EPUB payloads to arbitrary file paths
+- Can modify MobileGestalt.plist to spoof device type
+- For educational and research purposes only
 
 ## Installation
 SideStore is recommended as you will also be getting the pairing file and setting up VPN.
